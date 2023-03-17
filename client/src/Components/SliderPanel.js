@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState} from "react";
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -68,14 +68,31 @@ const Input2 = styled(MuiInput)`width: 110px;`;
 
 export default function SliderPanel({ field, panelName, min, max, value, setVal }) {
 
+    const [inputVal, setInputVal] = useState(min);
 
     const handleSliderChange = (event, newValue) => {
         setVal(newValue);
     };
 
     const handleInputChange = (event) => {
+        let val = event.target.value;
+        
+        if (Number(val) < min) {
+            setInputVal(val);
+            setVal(min);
+            // return;
+          }
+      
+          if (Number(val) > max) {
+            setInputVal(val);
+            setVal(max);
+            return;
+          }
+
         setVal(event.target.value === '' ? '' : Number(event.target.value));
     };
+
+    // if(value>?
 
     return (
         <>

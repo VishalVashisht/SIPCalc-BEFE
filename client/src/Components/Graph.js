@@ -24,7 +24,7 @@ export default function Graph({sipGrowthResult, graph, monthlyInvestment, invest
                         <XAxis dataKey="year" stroke= "#000000" fontWeight="bold"  />
                         <YAxis dataKey="value" width={90} stroke= "#000000" fontWeight="bold"/>
                         <Tooltip/>
-                        <CartesianGrid/>
+                        {/* <CartesianGrid/> */}
                         <Line 
 
                             type="monotone"

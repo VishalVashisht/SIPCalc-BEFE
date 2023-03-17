@@ -36,9 +36,8 @@ export default function SIPCalc() {
   const [graph, setGraph] = useState();
 
 
-
-  const [result, setResult] = useState();
-  // const [status, setStatus] = useState(-1);
+  // const [result, setResult] = useState();
+  const [status, setStatus] = useState(0);
 
 
   useEffect(() => {
@@ -51,10 +50,14 @@ export default function SIPCalc() {
       },
     })
     .then((res) =>{
-      setResult(res.data)
-      setSipGrowthResult(res.data.fresult.sipGrowthResult);
-      setGraph(res.data.fresult.graph);
-    }
+        if(res.data.status === -1){
+          alert(res.data.message);
+        }
+        else{
+          setSipGrowthResult(res.data.fresult.sipGrowthResult);
+          setGraph(res.data.fresult.graph);
+          }    
+      }
     )
     
   }, [monthlyInvestment, investmentPeriod, rateOfReturn, rateOfInflation]);
