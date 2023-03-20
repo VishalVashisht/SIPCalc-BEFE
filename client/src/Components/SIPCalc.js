@@ -5,30 +5,9 @@ import axios from 'axios';
 
 export default function SIPCalc() {
   const [monthlyInvestment, setValueMonthlyInvestment] = useState(10000);
-
-  const handleMi = (event) => {
-    setValueMonthlyInvestment(monthlyInvestment);
-  };
-
   const [investmentPeriod, setValueInvestmentPeriod] = useState(5);
-
-  const handleIp = (event) => {
-    setValueInvestmentPeriod(investmentPeriod);
-  };
-
   const [rateOfReturn, setValueRateOfReturn] = useState(10);
-
-  const handleRor = (event) => {
-    setValueRateOfReturn(rateOfReturn);
-  };
-
   const [rateOfInflation, setValueRateOfInflation] = useState(2);
-
-  const handleRoi = (event) => {
-    setValueRateOfInflation(rateOfInflation);
-  };
-
-
 
 
   // const [data, setData] = useState(null);
@@ -51,7 +30,8 @@ export default function SIPCalc() {
     })
     .then((res) =>{
         if(res.data.status === -1){
-          alert(res.data.message);
+          // alert(res.data.message);
+
         }
         else{
           setSipGrowthResult(res.data.fresult.sipGrowthResult);
@@ -59,7 +39,6 @@ export default function SIPCalc() {
           }    
       }
     )
-    
   }, [monthlyInvestment, investmentPeriod, rateOfReturn, rateOfInflation]);
 
 

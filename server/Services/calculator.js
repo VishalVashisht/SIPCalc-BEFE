@@ -1,7 +1,7 @@
-  async function calculate({monthlyInvestment, investmentPeriod, rateOfReturn, rateOfInflation}){
+  async function calculate(props){
     try{
-      const rate = (rateOfReturn - rateOfInflation) / 12
-    const months = investmentPeriod*12;
+      const rate = (props.rateOfReturn - props.rateOfInflation) / 12
+    const months = props.investmentPeriod*12;
     let sipGrowthResult = 0;
 
     const graph = [{
@@ -10,11 +10,11 @@
         value: 0,
       }]
       for (let i = 1; i <= months; i++) {
-        sipGrowthResult += monthlyInvestment * Math.pow(1 + rate / 100, i)
+        sipGrowthResult += props.monthlyInvestment * Math.pow(1 + rate / 100, i)
         if(i%12 == 0){
           const obj = {
             year: i/12,
-            investment: monthlyInvestment * i,
+            investment: props.monthlyInvestment * i,
             value: Math.round(sipGrowthResult)
           }
           graph.push(obj)

@@ -82,8 +82,8 @@ export default function SliderPanel({ field, panelName, min, max, value, setVal 
             setVal(min);
             // return;
           }
-      
-          if (Number(val) > max) {
+
+        if (Number(val) > max) {
             setInputVal(val);
             setVal(max);
             return;
@@ -92,7 +92,6 @@ export default function SliderPanel({ field, panelName, min, max, value, setVal 
         setVal(event.target.value === '' ? '' : Number(event.target.value));
     };
 
-    // if(value>?
 
     return (
         <>
