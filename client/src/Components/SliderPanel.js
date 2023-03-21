@@ -82,7 +82,6 @@ export default function SliderPanel(props) {
             setInputVal(val);
             props.setVal(props.min);
           }
-      
           if (Number(val) > props.max) {
             setInputVal(val);
             props.setVal(props.max);
@@ -114,7 +113,6 @@ export default function SliderPanel(props) {
           return;
         }
       };
-
     return (
         <>
             <br />

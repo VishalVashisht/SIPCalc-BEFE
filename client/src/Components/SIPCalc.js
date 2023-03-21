@@ -35,7 +35,6 @@ export default function SIPCalc() {
           }    
       }
     )
-    
   }, [monthlyInvestment, investmentPeriod, rateOfReturn, rateOfInflation]);
 
 
