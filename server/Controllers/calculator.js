@@ -40,7 +40,7 @@ const validator = async (req, res) => {
     catch (error) {
         res.send({
             status: -1,
-            message: "Something went wrong",
+            // message: "Something went wrong",
             fresult: error
         })
     }

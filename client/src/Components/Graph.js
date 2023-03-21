@@ -1,5 +1,5 @@
 import React from "react";
-import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
+import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
 
 
 export default function Graph(props) {
@@ -24,7 +24,6 @@ export default function Graph(props) {
                         <XAxis dataKey="year" stroke= "#000000" fontWeight="bold"  />
                         <YAxis dataKey="value" width={90} stroke= "#000000" fontWeight="bold"/>
                         <Tooltip/>
-                        {/* <CartesianGrid/> */}
                         <Line 
 
                             type="monotone"
