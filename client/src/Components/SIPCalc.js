@@ -1,43 +1,18 @@
 import Calc from "./Calc";
 import Graph from "./Graph";
+import ErrorComp from "./ErrorComp";
 import { React, useState, useEffect } from "react";
 import axios from 'axios';
 
 export default function SIPCalc() {
   const [monthlyInvestment, setValueMonthlyInvestment] = useState(10000);
-
-  const handleMi = (event) => {
-    setValueMonthlyInvestment(monthlyInvestment);
-  };
-
   const [investmentPeriod, setValueInvestmentPeriod] = useState(5);
-
-  const handleIp = (event) => {
-    setValueInvestmentPeriod(investmentPeriod);
-  };
-
   const [rateOfReturn, setValueRateOfReturn] = useState(10);
-
-  const handleRor = (event) => {
-    setValueRateOfReturn(rateOfReturn);
-  };
-
   const [rateOfInflation, setValueRateOfInflation] = useState(2);
-
-  const handleRoi = (event) => {
-    setValueRateOfInflation(rateOfInflation);
-  };
-
-
-
-
-  // const [data, setData] = useState(null);
   const [sipGrowthResult,setSipGrowthResult] = useState();
   const [graph, setGraph] = useState();
-
-
-  // const [result, setResult] = useState();
   const [status, setStatus] = useState(0);
+  const [err,setError]= useState();
 
 
   useEffect(() => {
@@ -51,11 +26,12 @@ export default function SIPCalc() {
     })
     .then((res) =>{
         if(res.data.status === -1){
-          alert(res.data.message);
+          setError(true);
         }
         else{
           setSipGrowthResult(res.data.fresult.sipGrowthResult);
           setGraph(res.data.fresult.graph);
+          setError(false);
           }    
       }
     )
@@ -73,16 +49,16 @@ export default function SIPCalc() {
       <div className="leftPanel">
         <Calc
           mi={monthlyInvestment}
-          handleMi={setValueMonthlyInvestment}
+          setValueMonthlyInvestment={setValueMonthlyInvestment}
           ip={investmentPeriod}
-          handleIp={setValueInvestmentPeriod}
+          setValueInvestmentPeriod={setValueInvestmentPeriod}
           ror={rateOfReturn}
-          handleRor={setValueRateOfReturn}
+          setValueRateOfReturn={setValueRateOfReturn}
           roi={rateOfInflation}
-          handleRoi={setValueRateOfInflation} />
+          setValueRateOfInflation={setValueRateOfInflation} />
       </div>
       <div className="rightPanel">
-        <Graph sipGrowthResult = {sipGrowthResult} graph={graph} monthlyInvestment={monthlyInvestment} investmentPeriod={investmentPeriod} />
+        {err ? <ErrorComp/> :<Graph sipGrowthResult = {sipGrowthResult} graph={graph} monthlyInvestment={monthlyInvestment} investmentPeriod={investmentPeriod} />}
       </div>
     </div>
   )

@@ -66,54 +66,76 @@ function valuetext(value) {
 const Input2 = styled(MuiInput)`width: 110px;`;
 
 
-export default function SliderPanel({ field, panelName, min, max, value, setVal }) {
+export default function SliderPanel(props) {
 
-    const [inputVal, setInputVal] = useState(min);
+    const [inputVal, setInputVal] = useState(props.min);
 
     const handleSliderChange = (event, newValue) => {
-        setVal(newValue);
+        props.setVal(newValue);
+        setInputVal(props.min)
     };
 
     const handleInputChange = (event) => {
         let val = event.target.value;
         
-        if (Number(val) < min) {
+        if (Number(val) < props.min) {
             setInputVal(val);
-            setVal(min);
-            // return;
+            props.setVal(props.min);
           }
       
-          if (Number(val) > max) {
+          if (Number(val) > props.max) {
             setInputVal(val);
-            setVal(max);
-            return;
+            props.setVal(props.max);
           }
 
-        setVal(event.target.value === '' ? '' : Number(event.target.value));
+        props.setVal(event.target.value === '' ? '' : Number(event.target.value));
     };
 
-    // if(value>?
+    const handleBlur = (event) => {
+        let val = event.target.value;
+    
+        if (val <= 0) {
+          alert("Please enter valid value greater than zero");
+          props.setVal(props.min);
+          setInputVal(props.min);
+          return;
+        }
+    
+        val = Number(val);
+    
+        if (val < props.min) {
+          props.setVal( props.min);
+          setInputVal(props.min);
+          return;
+        }
+        if (val > props.max) {
+          props.setVal(props.max);
+          setInputVal(props.max);
+          return;
+        }
+      };
 
     return (
         <>
             <br />
-            <div className={field}>
+            <div className={props.field}>
                 <Box sx={{ width: 570, margin: 1 }}>
 
                     <div className="sliderhead">
-                        <h3>{panelName}</h3>
+                        <h3>{props.panelName}</h3>
                     </div>
                     <div className="Input">
                         <Grid className="demo" container>
                             <Input2
                                 type="number"
-                                value={value}
+                                value={props.value}
                                 size="small"
+                                onBlur={handleBlur}
                                 onChange={handleInputChange}
                                 inputProps={{
                                     step: 1,
-                                    min: min,
-                                    max: max
+                                    min: props.min,
+                                    max: props.max
                                 }}
                             />
                         </Grid>
@@ -122,15 +144,15 @@ export default function SliderPanel({ field, panelName, min, max, value, setVal 
                     <Grid className="slider">
                         <Slider
                             aria-label="Custom marks"
-                            defaultValue={value}
+                            defaultValue={props.value}
                             getAriaValueText={valuetext}
-                            min={min}
-                            max={max}
+                            min={props.min}
+                            max={props.max}
                             step={1}
-                            marks={field === 'monthlyInvestment' ? mark1 : mark2}
+                            marks={props.field === 'monthlyInvestment' ? mark1 : mark2}
                             onChange={handleSliderChange}
                             valueLabelDisplay="auto"
-                            value={value}
+                            value={props.value}
                         />
                     </Grid>
                 </Box>
@@ -138,5 +160,3 @@ export default function SliderPanel({ field, panelName, min, max, value, setVal 
         </>
     )
 }
-
-
