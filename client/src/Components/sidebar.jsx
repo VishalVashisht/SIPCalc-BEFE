@@ -4,7 +4,7 @@ export default function Sidebar(){
 
     return(
         <div className='dashboard-div'>
-            {}
+            
         </div>
     );
 }

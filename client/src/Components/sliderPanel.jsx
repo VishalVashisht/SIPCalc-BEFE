@@ -5,73 +5,58 @@ import Grid from '@mui/material/Grid';
 import MuiInput from '@mui/material/Input';
 import { styled } from '@mui/material/styles';
 
-
-const mark1 = [{
-    value: 50000,
-    label: '50000',
-},
-{
-    value: 240000,
-    label: '240000',
-},
-{
-    value: 430000,
-    label: '430000',
-},
-{
-    value: 620000,
-    label: '620000',
-},
-{
-    value: 810000,
-    label: '810000',
-},
-{
-    value: 1000000,
-    label: '1000000',
-},
-];
-
-
-const mark2 = [{
-    value: 0,
-    label: '0',
-},
-{
-    value: 6,
-    label: '6',
-},
-{
-    value: 12,
-    label: '12',
-},
-{
-    value: 18,
-    label: '18',
-},
-{
-    value: 24,
-    label: '24',
-},
-{
-    value: 30,
-    label: '30',
-},
-];
-
 function valuetext(value) {
     return `${value}`;
 }
 
-const Input2 = styled(MuiInput)`width: 110px;`;
-
-
 export default function SliderPanel(props) {
 
-    const [inputVal, setInputVal] = useState(props.min);
+    const Input2 = styled(MuiInput)`width: 110px;`;
+    const [newValue, setInputVal] = useState(props.min);
+
+    const mark1 = [{
+        value: 50000,
+        label: '50000'},
+    {
+        value: 240000,
+        label: '240000'},
+    {
+        value: 430000,
+        label: '430000'},
+    {
+        value: 620000,
+        label: '620000'},
+    {
+        value: 810000,
+        label: '810000'},
+    {
+        value: 1000000,
+        label: '1000000'}
+    ];
+    
+    const mark2 = [{
+        value: 0,
+        label: '0'},
+    {
+        value: 6,
+        label: '6'},
+    {
+        value: 12,
+        label: '12'},
+    {
+        value: 18,
+        label: '18'},
+    {
+        value: 24,
+        label: '24'},
+    {
+        value: 30,
+        label: '30'}
+    ];
+
 
     const handleSliderChange = (event, newValue) => {
-        props.setVal(newValue);
+        props.changeValues(props.field, newValue);
         setInputVal(props.min)
     };
 
@@ -80,14 +65,15 @@ export default function SliderPanel(props) {
         
         if (Number(val) < props.min) {
             setInputVal(val);
-            props.setVal(props.min);
+            props.changeValues(props.field, props.min);
           }
+      
           if (Number(val) > props.max) {
             setInputVal(val);
-            props.setVal(props.max);
+            props.changeValues(props.field, props.max);
           }
 
-        props.setVal(event.target.value === '' ? '' : Number(event.target.value));
+        props.changeValues(event.target.value === '' ? '' : Number(event.target.value));
     };
 
     const handleBlur = (event) => {
@@ -95,24 +81,23 @@ export default function SliderPanel(props) {
     
         if (val <= 0) {
           alert("Please enter valid value greater than zero");
-          props.setVal(props.min);
+          props.changeValues(props.field,props.min);
           setInputVal(props.min);
           return;
         }
     
-        val = Number(val);
-    
-        if (val < props.min) {
-          props.setVal( props.min);
+        if (Number(val) < props.min) {
+          props.changeValues(props.field,props.min);
           setInputVal(props.min);
           return;
         }
-        if (val > props.max) {
-          props.setVal(props.max);
+        if (Number(val) > props.max) {
+          props.changeValues(props.field, props.max);
           setInputVal(props.max);
           return;
         }
       };
+
     return (
         <>
             <br />

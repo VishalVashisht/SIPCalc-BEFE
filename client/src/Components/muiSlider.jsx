@@ -61,7 +61,7 @@ const mark2 = [  {
 export default function MUISlider({value, handleChange, min, max, step, field}){
     return (
         <div className='container'>
-        <Box  sx={{ width:570, margin:1}}>
+        {/* <Box  sx={{ width:570, margin:1}}>
           <Slider
             defaultValue={value} 
             onChange={handleChange}
@@ -95,7 +95,7 @@ export default function MUISlider({value, handleChange, min, max, step, field}){
                 </Grid>
                 
             </Grid>
-        </Box>
+        </Box> */}
         </div>
       );
 }

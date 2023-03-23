@@ -16,31 +16,36 @@
   display: inline-block;
   width: 12%;
   height: 100%;
-  /* padding-top: 0; */
-  /* text-align: center; */
   color: white;
 }
 
-.leftFull{
+.rightFull{
   display: inline-block;
   width: 88%;
   height: 100%;
   vertical-align: top;
   background-color: #F1F5FA;
-  
+}
+
+button{
+  padding: 1.5px;
+  margin-left: 25px;
+  margin-top: 10px;
+  font-size: 16px;
+  border-radius: 5px;
 }
 
 .white-div{
   background-color: white;
-  /* display: inline-block; */
-  /* width: 85%; */
-  /* height: 92%; */
   vertical-align: top;
-  margin-top: 3%;
+  margin-top: 2%;
   margin-left: 1.5%;
   margin-right: 1.5%;
   height: 88vh;
-  /* padding-left: 50px; */
+}
+
+.whiteDivHeader{
+  margin-left: 35px;
 }
 
 .leftPanel{
@@ -64,10 +69,6 @@
   margin-top: 2%;
   vertical-align: top;
   padding-right: 3%;
-}
-
-.whiteDivHeader{
-  margin-left: 35px;
 }
 
 .container{
