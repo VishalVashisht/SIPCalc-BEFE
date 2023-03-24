@@ -72,7 +72,7 @@ export default function SliderPanel(props) {
 
     const handleSliderChange = (event, newValue) => {
         props.setVal(newValue);
-        setInputVal(props.min)
+        setInputVal(props.min);
     };
 
     const handleInputChange = (event) => {
@@ -101,14 +101,12 @@ export default function SliderPanel(props) {
           return;
         }
     
-        val = Number(val);
-    
-        if (val < props.min) {
+        if (Number(val) < props.min) {
           props.setVal( props.min);
           setInputVal(props.min);
           return;
         }
-        if (val > props.max) {
+        if (Number(val) > props.max) {
           props.setVal(props.max);
           setInputVal(props.max);
           return;

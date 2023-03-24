@@ -16,13 +16,18 @@ const validate = ({ monthlyInvestment, investmentPeriod, rateOfReturn, rateOfInf
         return false;
     }
 
-    if (rateOfInflation < 1 || rateOfInflation > 30) {
+    if (rateOfInflation < 0 || rateOfInflation > 30) {
         return false;
     }
 
     return true;
 };
 
+const badRequest = {
+    status: -1,
+    message: "Something is not good",
+    result: "Invalid data entered"
+}; 
 
 const validator = async (req, res) => {
 
@@ -42,7 +47,6 @@ const validator = async (req, res) => {
     catch (error) {
         res.send({
             status: -1,
-            // message: "Something went wrong",
             fresult: error
         })
     }
