@@ -23,6 +23,7 @@ export default function Graph( props) {
                     <LineChart data={props.result && props.result.graph} width={500} height={550} >
                         <XAxis dataKey="year" stroke= "#000000" fontWeight="bold"  />
                         <YAxis width={90} stroke= "#000000" fontWeight="bold"/>
+                        <YAxis width={90} stroke= "#000000" fontWeight="bold"/>
                         <Tooltip/>
                         <Line 
                             type="monotone"

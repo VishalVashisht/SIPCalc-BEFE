@@ -1,25 +1,23 @@
-const { request } = require("express");
 const service = require("../Services/calculator")
 
 
-const validate = ({ monthlyInvestment, investmentPeriod, rateOfReturn, rateOfInflation }) => {
+const validate = (props) => {
 
-    if (monthlyInvestment < 1000 || monthlyInvestment > 10000000) {
+    if (props.monthlyInvestment < 1000 || props.monthlyInvestment > 10000000) {
         return false;
     }
 
-    if (investmentPeriod < 1 || investmentPeriod > 30) {
+    if (props.investmentPeriod < 1 || props.investmentPeriod > 30) {
         return false;
     }
 
-    if (rateOfReturn < 1 || rateOfReturn > 30) {
+    if (props.rateOfReturn < 1 || props.rateOfReturn > 30) {
         return false;
     }
 
     if (rateOfInflation < 0 || rateOfInflation > 30) {
         return false;
     }
-
     return true;
 };
 
