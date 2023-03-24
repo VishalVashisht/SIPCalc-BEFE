@@ -3,52 +3,41 @@
   margin: 0;
 }
 
-.super-div{
-  display: block;
-  width: 100%;
-  height: 100vh;
-  border: 2px;
-  background-color: #F1F5FA;
-}
-
-.dashboard-div{
+.leftSideBox{
   background-color: #526FE4;
   display: inline-block;
   width: 12%;
-  height: 100%;
+  height: 100vh;
   color: white;
 }
 
-.rightFull{
+.rightSideBox{
   display: inline-block;
   width: 88%;
-  height: 100%;
+  height: 100vh;
   vertical-align: top;
   background-color: #F1F5FA;
 }
 
 button{
-  padding: 1.5px;
+  padding: 2px;
   margin-left: 25px;
-  margin-top: 10px;
-  font-size: 16px;
+  margin-top: 7px;
+  font-size: 20px;
   border-radius: 5px;
 }
 
-.white-div{
+.rightMain{
   background-color: white;
   vertical-align: top;
+  margin-top: 2%;
   margin-top: 2%;
   margin-left: 1.5%;
   margin-right: 1.5%;
   height: 88vh;
 }
 
-.whiteDivHeader{
-  margin-left: 35px;
-}
-
-.leftPanel{
+.leftContainer{
   display: inline-block;
   border:2px solid #F5F5F5;
   border-radius: 1%;
@@ -60,7 +49,7 @@ button{
   padding-left: 25px; 
 }
 
-.rightPanel{
+.rightContainer{
   display: inline-block;
   border:2px solid #F5F5F5;
   border-radius: 1%;
@@ -69,6 +58,10 @@ button{
   margin-top: 2%;
   vertical-align: top;
   padding-right: 3%;
+}
+
+.calculatorText{
+  margin-left: 35px;
 }
 
 .container{
