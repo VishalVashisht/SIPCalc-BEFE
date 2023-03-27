@@ -64,13 +64,6 @@ button{
   margin-left: 35px;
 }
 
-.container{
-  display: grid;
-  place-items: center;
-  margin-left: 10px;
-  padding-right: 50px;
-}
-
 .sliderPanelDiv .sliderhead{
   display: inline;
 }
@@ -136,12 +129,45 @@ svg, .graphFooter{
   overflow: visible;
 }
 
-/* @media only screen and (max-width: 601px) {
-  .rightSideBox{
-  background-color: #526FE4;
-  display: none;
-  width: 5%;
-  height: 100vh;
-  color: white;
+@media  (max-width: 1048px){
+  .rightSideBox .rightMain .container .rightContainer{
+    display: block;
+    width: 48%;
   }
-} */
+  .rightSideBox .rightMain .container .rightContainer, .rightSideBox .rightMain .container .leftContainer{
+    font-size: small; 
+  }
+
+  .rightSideBox .rightMain .container .leftContainer .slidersArea{
+    overflow: hidden;
+  }
+
+  .rightSideBox .rightMain .container .rightContainer .calculatorText{
+    font-size: larger;
+    padding: 20px 5px;
+  }
+
+  .calculatorText h2, p {
+    font-size: small;
+  }
+}
+
+@media (max-width: 524px) {
+  .leftSideBox{
+    display: none;
+  }
+
+  .rightSideBox{
+    width: 100%;
+  }
+ 
+  .rightSideBox .rightMain .container .rightContainer{
+    width: 88%;
+  } 
+  .rightSideBox .rightMain .container .leftContainer{
+    width: 96%;
+  }
+  .calculatorText{
+    font-size: 20px;
+  }
+}
