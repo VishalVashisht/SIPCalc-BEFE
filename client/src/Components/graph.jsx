@@ -19,15 +19,15 @@ export default function Graph( props) {
             </div>
 
             <div className="graphFooter">
-                <ResponsiveContainer width={550} aspect={1.4}>
+                <ResponsiveContainer width={500} aspect={1.4}>
                     <LineChart data={props.result && props.result.graph} width={500} height={550} >
-                        <XAxis dataKey="year" stroke= "#000000" fontWeight="bold">
-                            <Label value="Investment Period(in Years)🡢" position="bottom" offset={-1}/>
-                        </XAxis>
-                        <YAxis width={90} stroke= "#000000" fontWeight="bold"/>
-                        <YAxis width={90} stroke= "#000000" fontWeight="bold">
-                            <Label value="Amount(in Rupees)🡢" position="left" offset={5} angle={270}/>
-                        </YAxis>
+                    <XAxis dataKey="year" stroke= "#000000" fontWeight="bold"><Label value="Investment Period(in Years)" position="bottom" offset={10}/></XAxis>
+                        <YAxis width={90} stroke= "#000000" fontWeight="bold"><Label value="SIP Growth(in Rupees)" position="left" offset={15} angle={270}
+                             style={{
+                                textAnchor: "middle",
+                                fontSize: "100%",
+                                fill: "rgba(0, 0, 0, 0.56)",
+                              }}/></YAxis>
                         <Tooltip/>
                         <Line 
                             type="monotone"

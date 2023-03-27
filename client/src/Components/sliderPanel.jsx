@@ -60,42 +60,42 @@ const mark2 = [{
 const Input2 = styled(MuiInput)`width: 110px;`;
 
 export default function SliderPanel(props) {
-     const handleSliderChange = (event, newValue) => {
-        props.setSliderValue(newValue);
+
+    const handleSliderChange = (event, newValue) => {
+        props.changeValues(props.field, newValue);
     };
 
     const handleInputChange = (event) => {
         let val = event.target.value;
-        
-        if (Number(val) < props.min) {
-            props.setSliderValue(props.min);
-          }
-      
-          if (Number(val) > props.max) {
-            props.setSliderValue(props.max);
-          }
 
-        props.setSliderValue(event.target.value === '' ? '' : Number(event.target.value));
+        if (Number(val) < props.min) {
+            props.changeValues(props.field, props.min);
+        }
+
+        if (Number(val) > props.max) {
+            props.changeValues(props.field, props.max);
+        }
+        props.changeValues(props.field, event.target.value === '' ? '' : Number(event.target.value))
     };
 
     const handleBlur = (event) => {
         let val = event.target.value;
-    
+
         if (val <= 0) {
-          alert("Please enter valid value greater than zero");
-          props.setSliderValue(props.min);
-          return;
+            alert("Please enter valid value greater than zero");
+            props.changeValues(props.field, props.min);
+            return;
         }
-    
+
         if (Number(val) < props.min) {
-          props.setSliderValue( props.min);
-          return;
+            props.changeValues(props.field, props.min);
+            return;
         }
         if (Number(val) > props.max) {
-          props.setSliderValue(props.max);
-          return;
+            props.changeValues(props.field, props.max);
+            return;
         }
-      };
+    };
 
     return (
         <>

@@ -11,6 +11,23 @@ export default function SIPCalculator() {
   const [rateOfInflation, setValueRateOfInflation] = useState(2);
   const [err,setError]= useState(false);
   const [result, setResult] = useState();
+  
+  function changeValues(name, val) {
+    switch (name) {
+      case "monthlyInvestment": 
+        setValueMonthlyInvestment(val);
+        break;
+      case "investmentPeriod":
+        setValueInvestmentPeriod(val);
+        break;
+      case "rateOfReturn":
+        setValueRateOfReturn(val);
+        break;
+      case "rateOfInflation":
+        setValueRateOfInflation(val);
+        break;
+    }
+  }
 
   useEffect(() => {   
     axios.get('/api', {
@@ -46,13 +63,11 @@ export default function SIPCalculator() {
       <div className="leftContainer">
         <Calculator
           monthlyInvestment={monthlyInvestment}
-          setValueMonthlyInvestment={setValueMonthlyInvestment}
           investmentPeriod ={investmentPeriod}
-          setValueInvestmentPeriod={setValueInvestmentPeriod}
           rateOfReturn ={rateOfReturn}
-          setValueRateOfReturn={setValueRateOfReturn}
           rateOfInflation ={rateOfInflation}
-          setValueRateOfInflation={setValueRateOfInflation} />
+          changeValues={changeValues}
+          />
       </div>
 
       <div className="rightContainer">
