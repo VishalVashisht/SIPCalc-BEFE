@@ -5,7 +5,9 @@ import Grid from '@mui/material/Grid';
 import MuiInput from '@mui/material/Input';
 import { styled } from '@mui/material/styles';
 
-const mark1 = [{
+export default function SliderPanel(props) {
+
+    const mark1 = [{
     value: 50000,
     label: '50000',
 },
@@ -58,45 +60,6 @@ const mark2 = [{
 ];
 
 const Input2 = styled(MuiInput)`width: 110px;`;
-
-export default function SliderPanel(props) {
-
-    // const handleSliderChange = (event, newValue) => {
-    //     props.changeValues(props.field, newValue);
-    // };
-
-    // const handleInputChange = (event) => {
-    //     let val = event.target.value;
-
-    //     if (Number(val) < props.min) {
-    //         props.changeValues(props.field, props.min);
-    //     }
-
-    //     if (Number(val) > props.max) {
-    //         props.changeValues(props.field, props.max);
-    //     }
-    //     props.changeValues(props.field, event.target.value === '' ? '' : Number(event.target.value))
-    // };
-
-    // const handleBlur = (event) => {
-    //     let val = event.target.value;
-
-    //     if (val <= 0) {
-    //         alert("Please enter valid value greater than zero");
-    //         props.changeValues(props.field, props.min);
-    //         return;
-    //     }
-
-    //     if (Number(val) < props.min) {
-    //         props.changeValues(props.field, props.min);
-    //         return;
-    //     }
-    //     if (Number(val) > props.max) {
-    //         props.changeValues(props.field, props.max);
-    //         return;
-    //     }
-    // };
-
     return (
         <>
             <br />

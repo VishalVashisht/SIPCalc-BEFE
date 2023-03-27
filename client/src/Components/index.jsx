@@ -112,7 +112,7 @@ export default function SIPCalculator() {
       </div>
 
       <div className="rightContainer">
-        {err ? <ErrorComp/> : <Graph result={result} monthlyInvestment={monthlyInvestment} investmentPeriod={investmentPeriod} />}
+        {err ? <ErrorComp/> : <Graph result={result}/>}
       </div>
 
     </div>

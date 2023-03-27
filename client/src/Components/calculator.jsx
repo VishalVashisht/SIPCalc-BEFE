@@ -10,7 +10,6 @@ export default function Calculator(props){
             min={10000} 
             max={1000000}
             value={props.monthlyInvestment} 
-            // changeValues={props.changeValues}
             handleSliderChange={props.handleSliderChange}
             handleInputChange={props.handleInputChange}
             handleBlur={props.handleBlur}
@@ -21,8 +20,7 @@ export default function Calculator(props){
             sliderLabel="Investment Period (in years)" 
             min={0} 
             max={30} 
-            value={props.investmentPeriod} 
-            // changeValues={props.changeValues}
+            value={props.investmentPeriod}
             handleSliderChange={props.handleSliderChange}
             handleInputChange={props.handleInputChange}
             handleBlur={props.handleBlur}
@@ -34,7 +32,6 @@ export default function Calculator(props){
             min={0} 
             max={30}  
             value={props.rateOfReturn} 
-            // changeValues={props.changeValues}
             handleSliderChange={props.handleSliderChange}
             handleInputChange={props.handleInputChange}
             handleBlur={props.handleBlur}
@@ -46,7 +43,6 @@ export default function Calculator(props){
             min={0} 
             max={30} 
             value={props.rateOfInflation} 
-            // changeValues={props.changeValues}
             handleSliderChange={props.handleSliderChange}
             handleInputChange={props.handleInputChange}
             handleBlur={props.handleBlur}
