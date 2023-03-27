@@ -64,7 +64,7 @@ const Input2 = styled(MuiInput)`width: 110px;`;
         <>
             <br />
             <div className= "sliderPanelDiv">
-                <Box sx={{ width: 570, margin: 1 }}>
+                <Box sx={{ maxWidth: 570, margin: 1 }}>
 
                     <div className="sliderhead">
                         <h3>{props.sliderLabel}</h3>

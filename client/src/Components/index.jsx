@@ -67,7 +67,6 @@ export default function SIPCalculator() {
   };
 
 
-
   useEffect(() => {   
     axios.get('/api', {
       params: {
