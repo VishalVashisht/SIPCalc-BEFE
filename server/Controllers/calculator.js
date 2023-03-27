@@ -15,7 +15,7 @@ const validate = (props) => {
         return false;
     }
 
-    if (rateOfInflation < 0 || rateOfInflation > 30) {
+    if (props.rateOfInflation < 0 || props.rateOfInflation > 30) {
         return false;
     }
     return true;
@@ -30,6 +30,7 @@ const badRequest = {
 const validator = async (req, res) => {
 
     try {
+        
         if (validate(req.query) === false) {
             res.send(badRequest);
             return;
@@ -45,7 +46,7 @@ const validator = async (req, res) => {
     catch (error) {
         res.send({
             status: -1,
-            fresult: error
+            fresult: error.message
         })
     }
 }

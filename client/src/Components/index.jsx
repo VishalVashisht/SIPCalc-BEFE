@@ -1,4 +1,4 @@
-import Calc from "./calculator";
+import Calculator from "./calculator";
 import Graph from "../../../client/src/Components/graph";
 import ErrorComp from "../../../client/src/Components/errorComp";
 import { React, useState, useEffect } from "react";
@@ -9,10 +9,10 @@ export default function SIPCalculator() {
   const [investmentPeriod, setValueInvestmentPeriod] = useState(5);
   const [rateOfReturn, setValueRateOfReturn] = useState(10);
   const [rateOfInflation, setValueRateOfInflation] = useState(2);
-  const [err,setError]= useState();
+  const [err,setError]= useState(false);
   const [result, setResult] = useState();
 
-  useEffect(() => {
+  useEffect(() => {   
     axios.get('/api', {
       params: {
         monthlyInvestment: monthlyInvestment,
@@ -22,11 +22,11 @@ export default function SIPCalculator() {
       },
     })
     .then((res) =>{
-        if(res.data.status === -1){
+        if(res.data && res.data.status == -1){
           setError(true);
         }
         else{
-          setResult(res.data.fresult);
+          setResult(res.data && res.data.fresult);
           setError(false);
           }    
       }
@@ -37,15 +37,14 @@ export default function SIPCalculator() {
 
   return (
     <div className='rightMain'>
-
       <br />
       <div className="calculatorText">
-        <h2>{"SIP Calculator"}</h2>
-        <p>{"It tells you how much wealth you can create by making monthly investment"}</p>
+        <h2>SIP Calculator</h2>
+        <p>It tells you how much wealth you can create by making monthly investment</p>
       </div>
 
       <div className="leftContainer">
-        <Calc
+        <Calculator
           monthlyInvestment={monthlyInvestment}
           setValueMonthlyInvestment={setValueMonthlyInvestment}
           investmentPeriod ={investmentPeriod}

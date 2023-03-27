@@ -27,7 +27,7 @@ button{
   border-radius: 5px;
 }
 
-.rightMain{
+.rightSideBox .rightMain{
   background-color: white;
   vertical-align: top;
   margin-top: 2%;
@@ -37,7 +37,7 @@ button{
   height: 88vh;
 }
 
-.leftContainer{
+.rightSideBox .rightMain .leftContainer{
   display: inline-block;
   border:2px solid #F5F5F5;
   border-radius: 1%;
@@ -49,7 +49,7 @@ button{
   padding-left: 25px; 
 }
 
-.rightContainer{
+.rightSideBox .rightMain .rightContainer{
   display: inline-block;
   border:2px solid #F5F5F5;
   border-radius: 1%;
@@ -60,7 +60,7 @@ button{
   padding-right: 3%;
 }
 
-.calculatorText{
+.rightSideBox .rightMain .leftContainer .calculatorText{
   margin-left: 35px;
 }
 
@@ -71,39 +71,29 @@ button{
   padding-right: 50px;
 }
 
-input{
-  -webkit-appearance: none;
-  width: 100%;
-  height: 7px;
-  background-color: #D3DFFE;
-  border-radius: 4px;
-  outline: none;
-  opacity: 1;
-}
-
-::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #3a7bec;
-  cursor: pointer;
-  border: 4px solid #D3DFFE;
-}
-
-.sliderhead{
+.sliderPanelDiv .sliderhead{
   display: inline;
 }
+
 h3{
   display: inline;
 }
 
-.slider{
+h1{
+  color: red;
+  text-align: center;
+}
+
+.h2errComp{
+  color: green;
+  text-align: center;
+}
+
+.sliderPanelDiv .slider{
   margin-top: 25px;
 }
 
-.Input{
+.sliderPanelDiv .Input{
   float:right;
   margin-right: 10px;
   background-color: #ECF1FC;
@@ -113,29 +103,45 @@ h3{
   height: 4vh;
 }
 
-
-.graphHeader{
+.rightSideBox .rightMain .rightContainer .graphHeader{
   margin-left: 30px;
   margin-bottom: 50px;
   padding-top: 25px;
   color: #605e5e
 }
-.graphFooter{
+
+.rightSideBox .rightMain .rightContainer .graphFooter{
   margin-left: 5px;
 }
-.timeperiod{
+
+.rightSideBox .rightMain .rightContainer .graphHeader .timeperiod{
   color:black
 }
-.totalamount{
+
+.rightSideBox .rightMain .rightContainer .graphHeader .totalamount{
   color:#4B6AE2;
-}
-.potentialcapitalgain{
-  color: #FFAD85;
-}
-.monthlyinvestment{
-  color: #0BA77A;
-}
-.totalamount{
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+.rightSideBox .rightMain .rightContainer .graphHeader .potentialcapitalgain{
+  color: #FFAD85;
+}
+
+.rightSideBox .rightMain .rightContainer .graphHeader .monthlyinvestment{
+  color: #0BA77A;
+}
+
+svg, .graphFooter{
+  overflow: visible;
+}
+
+/* @media only screen and (max-width: 601px) {
+  .rightSideBox{
+  background-color: #526FE4;
+  display: none;
+  width: 5%;
+  height: 100vh;
+  color: white;
+  }
+} */

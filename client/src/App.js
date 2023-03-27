@@ -10,7 +10,7 @@ function App() {
     </div>
 
     <div className='rightSideBox'>
-        <button>Back</button>
+        <button>🡨Back</button>
       <SIPCalculator/>
     </div>
     </>
