@@ -1,0 +1,145 @@
+import { React} from "react";
+import Slider from '@mui/material/Slider';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import MuiInput from '@mui/material/Input';
+import { styled } from '@mui/material/styles';
+
+
+const mark1 = [{
+    value: 50000,
+    label: '50000',
+},
+{
+    value: 240000,
+    label: '240000',
+},
+{
+    value: 430000,
+    label: '430000',
+},
+{
+    value: 620000,
+    label: '620000',
+},
+{
+    value: 810000,
+    label: '810000',
+},
+{
+    value: 1000000,
+    label: '1000000',
+},
+];
+
+
+const mark2 = [{
+    value: 0,
+    label: '0',
+},
+{
+    value: 6,
+    label: '6',
+},
+{
+    value: 12,
+    label: '12',
+},
+{
+    value: 18,
+    label: '18',
+},
+{
+    value: 24,
+    label: '24',
+},
+{
+    value: 30,
+    label: '30',
+},
+];
+
+const Input2 = styled(MuiInput)`width: 110px;`;
+
+export default function SliderPanel(props) {
+
+    const handleSliderChange = (event, newValue) => {
+        props.changeValues(props.field, newValue);
+    };
+
+    const handleInputChange = (event) => {
+        let val = event.target.value;
+
+        if (Number(val) < props.min) {
+            props.changeValues(props.field, props.min);
+        }
+
+        if (Number(val) > props.max) {
+            props.changeValues(props.field, props.max);
+        }
+        props.changeValues(props.field, event.target.value === '' ? '' : Number(event.target.value))
+    };
+
+    const handleBlur = (event) => {
+        let val = event.target.value;
+
+        if (val <= 0) {
+            alert("Please enter valid value greater than zero");
+            props.changeValues(props.field, props.min);
+            return;
+        }
+
+        if (Number(val) < props.min) {
+            props.changeValues(props.field, props.min);
+            return;
+        }
+        if (Number(val) > props.max) {
+            props.changeValues(props.field, props.max);
+            return;
+        }
+    };
+
+    return (
+        <>
+            <br />
+            <div className={props.field}>
+                <Box sx={{ width: 570, margin: 1 }}>
+
+                    <div className="sliderhead">
+                        <h3>{props.sliderLabel}</h3>
+                    </div>
+                    <div className="Input">
+                        <Grid className="demo" container>
+                            <Input2
+                                type="number"
+                                value={props.value}
+                                size="small"
+                                onBlur={handleBlur}
+                                onChange={handleInputChange}
+                                inputProps={{
+                                    step: 1,
+                                    min: props.min,
+                                    max: props.max
+                                }}
+                            />
+                        </Grid>
+                    </div>
+                    <br />
+                    <Grid className="slider">
+                        <Slider
+
+                            defaultValue={props.value}
+                            min={props.min}
+                            max={props.max}
+                            step={1}
+                            marks={props.field === 'monthlyInvestment' ? mark1 : mark2}
+                            onChange={handleSliderChange}
+                            valueLabelDisplay="auto"
+                            value={props.value}
+                        />
+                    </Grid>
+                </Box>
+            </div>
+        </>
+    )
+}
