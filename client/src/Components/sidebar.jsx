@@ -3,8 +3,8 @@ import React from "react";
 export default function Sidebar(){
 
     return(
-        <div className='dashboard-div'>
-            
-        </div>
+        <>
+       <p>Dashboard</p> 
+        </>
     );
 }

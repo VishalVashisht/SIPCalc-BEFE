@@ -1,16 +1,17 @@
-import "../../client/src/App.css";
-import Sidebar from "../../client/src/Components/sidebar.jsx";
-import SIPCalc from '../../client/src/Components/index.jsx';
+import './App.css';
+import Sidebar from '../../client/src/Components/sidebar';
+import SIPCalc from '../../client/src/Components/index';
 
 function App() {
   return (
     <>
-    <div className='super-div'>
+    <div className='leftSideBox'>
       <Sidebar/>
-      <div className='rightFull'>
+    </div>
+
+    <div className='rightSideBox'>
         <button>Back</button>
       <SIPCalc/>
-      </div>
     </div>
     </>
   );
