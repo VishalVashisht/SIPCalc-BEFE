@@ -61,41 +61,41 @@ const Input2 = styled(MuiInput)`width: 110px;`;
 
 export default function SliderPanel(props) {
 
-    const handleSliderChange = (event, newValue) => {
-        props.changeValues(props.field, newValue);
-    };
+    // const handleSliderChange = (event, newValue) => {
+    //     props.changeValues(props.field, newValue);
+    // };
 
-    const handleInputChange = (event) => {
-        let val = event.target.value;
+    // const handleInputChange = (event) => {
+    //     let val = event.target.value;
 
-        if (Number(val) < props.min) {
-            props.changeValues(props.field, props.min);
-        }
+    //     if (Number(val) < props.min) {
+    //         props.changeValues(props.field, props.min);
+    //     }
 
-        if (Number(val) > props.max) {
-            props.changeValues(props.field, props.max);
-        }
-        props.changeValues(props.field, event.target.value === '' ? '' : Number(event.target.value))
-    };
+    //     if (Number(val) > props.max) {
+    //         props.changeValues(props.field, props.max);
+    //     }
+    //     props.changeValues(props.field, event.target.value === '' ? '' : Number(event.target.value))
+    // };
 
-    const handleBlur = (event) => {
-        let val = event.target.value;
+    // const handleBlur = (event) => {
+    //     let val = event.target.value;
 
-        if (val <= 0) {
-            alert("Please enter valid value greater than zero");
-            props.changeValues(props.field, props.min);
-            return;
-        }
+    //     if (val <= 0) {
+    //         alert("Please enter valid value greater than zero");
+    //         props.changeValues(props.field, props.min);
+    //         return;
+    //     }
 
-        if (Number(val) < props.min) {
-            props.changeValues(props.field, props.min);
-            return;
-        }
-        if (Number(val) > props.max) {
-            props.changeValues(props.field, props.max);
-            return;
-        }
-    };
+    //     if (Number(val) < props.min) {
+    //         props.changeValues(props.field, props.min);
+    //         return;
+    //     }
+    //     if (Number(val) > props.max) {
+    //         props.changeValues(props.field, props.max);
+    //         return;
+    //     }
+    // };
 
     return (
         <>
@@ -113,8 +113,8 @@ export default function SliderPanel(props) {
                                 type="number"
                                 value={props.value}
                                 size="small"
-                                onBlur={handleBlur}
-                                onChange={handleInputChange}
+                                onBlur={(event, newValue)=>props.handleBlur(event, newValue, props)}
+                                onChange={(event, newValue)=>props.handleInputChange(event, newValue, props)}
                                 inputProps={{
                                     step: 1,
                                     min: props.min,
@@ -131,7 +131,7 @@ export default function SliderPanel(props) {
                             max={props.max}
                             step={1}
                             marks={props.field === 'monthlyInvestment' ? mark1 : mark2}
-                            onChange={handleSliderChange}
+                            onChange={(event, newValue)=>props.handleSliderChange(event, newValue, props.field)}
                             valueLabelDisplay="auto"
                             value={props.value}
                         />

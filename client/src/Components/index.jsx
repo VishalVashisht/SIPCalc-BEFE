@@ -29,6 +29,45 @@ export default function SIPCalculator() {
     }
   }
 
+  function handleSliderChange(event, newValue, field){
+    changeValues(field, newValue)
+  };
+
+  function handleInputChange(event, newValue, props){
+    let val = newValue
+
+
+    if (Number(val) < props.min) {
+      changeValues(props.field, props.min);
+    }
+
+    if (Number(val) > props.max) {
+        changeValues(props.field, props.max);
+    }
+    changeValues(props.field, event.target.value === '' ? '' : Number(event.target.value))
+  };
+
+  function handleBlur(event, newValue, props){
+    let val = newValue 
+    console.log(props.min)
+    if (val <= 0) {
+        alert("Please enter valid value greater than zero");
+        changeValues(props.field, props.min);
+        return;
+    }
+
+    if (Number(val) < props.min) {
+        changeValues(props.field, props.min);
+        return;
+    }
+    if (Number(val) > props.max) {
+        changeValues(props.field, props.max);
+        return;
+    }
+  };
+
+
+
   useEffect(() => {   
     axios.get('/api', {
       params: {
@@ -66,7 +105,9 @@ export default function SIPCalculator() {
           investmentPeriod ={investmentPeriod}
           rateOfReturn ={rateOfReturn}
           rateOfInflation ={rateOfInflation}
-          changeValues={changeValues}
+          handleSliderChange={handleSliderChange}
+          handleInputChange={handleInputChange}
+          handleBlur={handleBlur}
           />
       </div>
 
